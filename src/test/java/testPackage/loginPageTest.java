@@ -27,7 +27,7 @@ public class loginPageTest {
 	//Gets mail and password and login to website and checks for successful login
 	@Test
 	public void launchBrowser() {
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver(options);
 		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
 		loginPage loginPage = new loginPage(driver);
 		loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
@@ -39,7 +39,7 @@ public class loginPageTest {
 	
 	@Test
 	public void forgotpswrd() throws InterruptedException {
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver(options);
 		loginPage loginPage = new loginPage(driver);
 		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
 		loginPage.forgotpwrd("rahulganesh6945@gmail.com", "newP@ssword1", "newP@ssword1");
