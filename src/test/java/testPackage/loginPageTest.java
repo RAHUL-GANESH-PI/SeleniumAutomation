@@ -13,7 +13,7 @@ public class loginPageTest {
 	}
 	
 	@Test
-	public void getLink1() {
+	public void getLink2() {
 		assertTrue(true);
 	}
 }
