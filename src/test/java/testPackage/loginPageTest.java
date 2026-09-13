@@ -12,8 +12,4 @@ public class loginPageTest {
 		assertTrue(true);
 	}
 	
-	@Test
-	public void getLink2() {
-		assertTrue(true);
-	}
 }
