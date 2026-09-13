@@ -11,4 +11,9 @@ public class loginPageTest {
 	public void getLink() {
 		assertTrue(true);
 	}
+	
+	@Test
+	public void getLink1() {
+		assertTrue(true);
+	}
 }
