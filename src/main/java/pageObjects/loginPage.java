@@ -38,10 +38,12 @@ public class loginPage {
 	@FindBy(css="button.btn-block")
 	WebElement frgtPswrdSavePswrdBtn;
 	
-	public void login(String userName,String password) {
+	public shoppingPage login(String userName,String password) {
 		usrName.sendKeys(userName);
 		pwrd.sendKeys(password);
 		loginBtn.click();
+		shoppingPage shoppingPage = new shoppingPage();
+		return shoppingPage;
 	}
 	
 	public void forgotpwrd(String eMail, String newPassword, String confirmPswrd) {
