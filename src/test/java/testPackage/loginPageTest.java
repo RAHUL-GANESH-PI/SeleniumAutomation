@@ -15,6 +15,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import pageObjects.loginPage;
+import pageObjects.shoppingPage;
 
 public class loginPageTest {
 	ChromeOptions options = new ChromeOptions();
@@ -30,7 +31,7 @@ public class loginPageTest {
 		WebDriver driver = new ChromeDriver(options);
 		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
 		loginPage loginPage = new loginPage(driver);
-		loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
+		shoppingPage object = loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		wait.until(ExpectedConditions.titleContains("Let's Shop"));
 		assertEquals(true, driver.getTitle().equals("Let's Shop"));
@@ -45,7 +46,7 @@ public class loginPageTest {
 		loginPage.forgotpwrd("rahulganesh6945@gmail.com", "newP@ssword1", "newP@ssword1");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='userEmail']")));
-		loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
+		shoppingPage object = loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
 		wait.until(ExpectedConditions.titleContains("Let's Shop"));
 		assertEquals(true, driver.getTitle().equals("Let's Shop"));
 		driver.quit();
