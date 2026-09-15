@@ -25,7 +25,8 @@ public class loginPageTest {
 		options.addArguments("headless");
 		options.addArguments("window-size=1920,1080");
 	}
-	//Gets mail and password and login to website and checks for successful login
+
+	// Gets mail and password and login to website and checks for successful login
 	@Test
 	public void launchBrowser() {
 		WebDriver driver = new ChromeDriver(options);
@@ -37,7 +38,8 @@ public class loginPageTest {
 		assertEquals(true, driver.getTitle().equals("Let's Shop"));
 		driver.close();
 	}
-	
+
+	// Resets password and test the new password by logging into Main Page
 	@Test
 	public void forgotpswrd() throws InterruptedException {
 		WebDriver driver = new ChromeDriver(options);
@@ -51,6 +53,5 @@ public class loginPageTest {
 		assertEquals(true, driver.getTitle().equals("Let's Shop"));
 		driver.quit();
 	}
-	
 
 }
