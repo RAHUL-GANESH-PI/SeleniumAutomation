@@ -39,7 +39,7 @@ public class loginPageTest {
 		driver.close();
 	}
 
-	// Resets password and test the new password by loggingin into Main Page
+	// Resets password and test the new password by logging into Main Page
 	@Test
 	public void forgotpswrd() throws InterruptedException {
 		WebDriver driver = new ChromeDriver(options);
