@@ -42,7 +42,7 @@ public class loginPage {
 		usrName.sendKeys(userName);
 		pwrd.sendKeys(password);
 		loginBtn.click();
-		shoppingPage shoppingPage = new shoppingPage();
+		shoppingPage shoppingPage = new shoppingPage(driver);
 		return shoppingPage;
 	}
 	
