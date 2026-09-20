@@ -1,4 +1,4 @@
-package pageObjects;
+package testPackage;
 
 import java.util.List;
 import java.util.stream.Collectors;
