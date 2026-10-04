@@ -52,8 +52,8 @@ public class shoppingPageTest {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".col-lg-4")));
 		List<WebElement> cartItems = driver.findElements(By.cssSelector(".col-lg-4"));
 		for(WebElement element : cartItems) { 
-			if(element.findElement(By.cssSelector(".card > .card-body > h5[style*='text-transform']")).getText().equalsIgnoreCase("ZARA COAT 3")) {
-				element.findElement(By.cssSelector(".card > .card-body > button[class*=w-40]")).click();
+			if(element.findElement(By.cssSelector(".card .card-body h5[style*='text-transform']")).getText().equalsIgnoreCase("ZARA COAT 3")) {
+				element.findElement(By.cssSelector(".card .card-body button[class*=w-40]")).click();
 				break;
 			}
 		}
