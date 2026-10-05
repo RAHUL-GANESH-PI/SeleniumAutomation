@@ -38,7 +38,7 @@ public class loginPageTest {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
 		wait.until(ExpectedConditions.titleContains("Let's Shop"));
 		assertEquals(true, driver.getTitle().equals("Let's Shop"));
-		driver.close();
+		driver.quit();
 	}
 
 	// Resets password and test the new password by logging into Main Page
