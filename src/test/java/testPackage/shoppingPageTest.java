@@ -58,8 +58,7 @@ public class shoppingPageTest {
 				break;
 			}
 		}
-		wait.until(
-				ExpectedConditions.urlContains("https://rahulshettyacademy.com/client/#/dashboard/product-details/"));
+		wait.until(ExpectedConditions.urlContains("https://rahulshettyacademy.com/client/#/dashboard/product-details/"));
 		wait.until(ExpectedConditions.textToBe(By.cssSelector(".col-lg-6 div h2"), "ZARA COAT 3"));
 		assertEquals(driver.findElement(By.cssSelector(".col-lg-6 div h2")).getText(), "ZARA COAT 3");
 		driver.quit();
