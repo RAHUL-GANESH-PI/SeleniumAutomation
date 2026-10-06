@@ -20,7 +20,7 @@ import pageObjects.shoppingPage;
 
 public class shoppingPageTest {
 	ChromeOptions options = new ChromeOptions();
-	
+
 	@BeforeTest
 	public void chromeOptions() {
 		options.addArguments("headless");
@@ -41,7 +41,7 @@ public class shoppingPageTest {
 		assertEquals(driver.getTitle(), "Let's Shop");
 		driver.quit();
 	}
-	
+
 	@Test
 	public void addToCart() {
 		WebDriver driver = new ChromeDriver(options);
@@ -51,15 +51,17 @@ public class shoppingPageTest {
 		shoppingPage shoppingPage = loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".col-lg-4")));
 		List<WebElement> cartItems = driver.findElements(By.cssSelector(".col-lg-4"));
-		for(WebElement element : cartItems) { 
-			if(element.findElement(By.cssSelector(".card .card-body h5[style*='text-transform']")).getText().equalsIgnoreCase("ZARA COAT 3")) {
+		for (WebElement element : cartItems) {
+			if (element.findElement(By.cssSelector(".card .card-body h5[style*='text-transform']")).getText()
+					.equalsIgnoreCase("ZARA COAT 3")) {
 				element.findElement(By.cssSelector(".card .card-body button[class*=w-40]")).click();
 				break;
 			}
 		}
-		wait.until(ExpectedConditions.urlContains("https://rahulshettyacademy.com/client/#/dashboard/product-details/"));
+		wait.until(
+				ExpectedConditions.urlContains("https://rahulshettyacademy.com/client/#/dashboard/product-details/"));
 		wait.until(ExpectedConditions.textToBe(By.cssSelector(".col-lg-6 div h2"), "ZARA COAT 3"));
-		assertEquals(driver.findElement(By.cssSelector(".col-lg-6 div h2")).getText(),"ZARA COAT 3");
+		assertEquals(driver.findElement(By.cssSelector(".col-lg-6 div h2")).getText(), "ZARA COAT 3");
 		driver.quit();
 	}
 }
