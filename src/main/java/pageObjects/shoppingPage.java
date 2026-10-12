@@ -19,5 +19,4 @@ public class shoppingPage {
 	
 	@FindBy(css="button[routerlink='/dashboard']")
 	WebElement cartBackBtn;
-	
 }
