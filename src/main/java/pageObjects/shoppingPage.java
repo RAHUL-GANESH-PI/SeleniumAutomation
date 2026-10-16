@@ -6,18 +6,18 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class shoppingPage {
-	
-    WebDriver driver;
+
+	WebDriver driver;
 
 	public shoppingPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(css="button[routerlink='/dashboard/cart']")
+
+	@FindBy(css = "button[routerlink='/dashboard/cart']")
 	WebElement cartBtn;
-	
-	@FindBy(css="button[routerlink='/dashboard']")
+
+	@FindBy(css = "button[routerlink='/dashboard']")
 	WebElement cartBackBtn;
-	
+
 }
