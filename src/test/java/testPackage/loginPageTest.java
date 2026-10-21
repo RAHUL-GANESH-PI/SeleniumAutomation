@@ -28,7 +28,6 @@ public class loginPageTest {
 		options.addArguments("window-size=1920,1080");
 	}
 
-	// Gets mail and password and login into web site and checks for successful login
 	@Test
 	public void launchBrowser() {
 		WebDriver driver = new ChromeDriver(options);
