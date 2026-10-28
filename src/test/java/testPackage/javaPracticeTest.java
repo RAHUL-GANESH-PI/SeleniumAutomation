@@ -9,7 +9,7 @@ public class javaPracticeTest {
 
 	@Test
 	void java() {
-		List<Integer> list = List.of(3, 8, 22, 7, 41, 12, 15);
+		List<Integer> list = List.of(3, 8, 22, 7, 12, 15);
 		System.out.println("Even numbers in Given Integer List: ");
 		list.stream().filter(n -> (n % 2 == 0)).collect(Collectors.toList()).forEach(n -> System.out.println(n));
 	}
