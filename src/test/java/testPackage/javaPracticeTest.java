@@ -1,5 +1,6 @@
 package testPackage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -41,5 +42,28 @@ public class javaPracticeTest {
 		List<String> list = List.of("rahul", "akash", "ramesh", "ravi");
 		list.stream().map(n -> n.substring(0, 1).toUpperCase() + n.substring(1).toLowerCase())
 				.forEach(n -> System.out.println(n));
+	}
+
+	@Test
+	void java5() {
+		List<String> list = new ArrayList<>();
+		list.add("1");
+		list.add("2");
+		list.add("3");
+		list.add("4");
+		list.add(1, "7");
+		System.out.println(list);
+		System.out.println("--------------")	;
+		System.out.println(list.subList(3, 5));
+		
+		String name = "rahul";
+		for(char c: name.toCharArray()) {
+			System.out.println(c);
+		}
+		
+		String name1 = "343rah$$)@(!.ul}";
+		System.out.println(name1.replaceAll("[^0-9a-zA-Z]", ""));
+		System.out.println(name1.replaceAll("[^a-zA-Z]", ""));
+		
 	}
 }
