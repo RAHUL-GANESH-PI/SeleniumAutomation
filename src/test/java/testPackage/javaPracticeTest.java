@@ -66,4 +66,32 @@ public class javaPracticeTest {
 		System.out.println(name1.replaceAll("[^a-zA-Z]", ""));
 		
 	}
+	
+	@Test
+	void java6() {
+		String sentence = "this is his list";
+		int index = 0;
+		int count = 0;
+		String is = "is";
+		while((index = sentence.trim().indexOf("is",index))!= -1) {
+			count++;
+			System.out.println("Index of " + count + "occurance: " + index);
+			index += is.length(); 
+		}
+		System.out.println("is has been repeated " + count + " number of times");
+	}
+	
+	@Test
+	void java7() {
+		String txt = "rahulganesh";
+		char character = 'a';
+		int index = 0;
+		int count = 0;
+		while((index = txt.indexOf(character,index))!=-1) {
+			count++;
+			index+=1;
+		}
+		System.out.println("'" + character + "'" + " has occurred " + count +" times in the given string: " + txt);
+		
+	}
 }
