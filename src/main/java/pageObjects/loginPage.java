@@ -5,11 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import base.waitBase;
+import Utils.waitBase;
 
 public class loginPage extends waitBase{
-	
-	WebDriver driver;
 	
 	public loginPage(WebDriver driver) {
 		super(driver);
