@@ -1,4 +1,4 @@
-package base;
+package Utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -73,5 +73,15 @@ public class base {
 			userName = loadGlobalProperties().getProperty("UserName");   // used when running locally in Eclipse
 		}
 		return userName;
+	}
+	
+	public String getPurchaseItem() throws IOException {
+		Properties prop = loadGlobalProperties();
+		return prop.getProperty("PurchaseItemName");
+	}
+	
+	public String getProductDetailURL() throws IOException {
+		Properties prop = loadGlobalProperties();
+		return prop.getProperty("ProductDetailURL");
 	}
 }
