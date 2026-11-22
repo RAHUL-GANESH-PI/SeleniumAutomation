@@ -19,6 +19,7 @@ import pageObjects.loginPage;
 import pageObjects.shoppingPage;
 
 public class shoppingPageTest extends base {
+
 	ChromeOptions options = new ChromeOptions();
 
 	@Test

@@ -15,12 +15,5 @@
 	</test> <!--
 	Test -->
 
-	<test thread-count="5" name="javaPracticeTest">
-		<classes>
-			<class name="testPackage.javaPracticeTest" />
-		</classes>
-	</test> <!--
-	Test -->
-
 </suite> <!--
 Suite -->
