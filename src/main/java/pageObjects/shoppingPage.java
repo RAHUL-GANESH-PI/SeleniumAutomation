@@ -62,6 +62,7 @@ public class shoppingPage extends waitBase {
 	public String getProductDetailsTitle(String getProductDetailURL) {
 		wait.until(ExpectedConditions.urlContains(getProductDetailURL));
 		wait.until(ExpectedConditions.visibilityOf(itemTitleInProdDetailPage));
+		wait.until(d -> !itemTitleInProdDetailPage.getText().trim().isEmpty());
 		return itemTitleInProdDetailPage.getText();
 	}
 }
