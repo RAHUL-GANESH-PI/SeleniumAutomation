@@ -3,6 +3,7 @@ package testPackage;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -16,21 +17,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import base.base;
 import pageObjects.loginPage;
 import pageObjects.shoppingPage;
 
-public class loginPageTest {
-	ChromeOptions options = new ChromeOptions();
-
-	@BeforeTest
-	public void optionsetup() {
-		options.addArguments("headless");
-		options.addArguments("window-size=1920,1080");
-	}
+public class loginPageTest extends base{
 
 	@Test
-	public void launchBrowser() {
-		WebDriver driver = new ChromeDriver(options);
+	public void launchBrowser() throws IOException {
+		WebDriver driver = getWebDriver();
 		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
 		loginPage loginPage = new loginPage(driver);
 		shoppingPage object = loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
@@ -41,8 +36,8 @@ public class loginPageTest {
 	}
 
 	@Test
-	public void forgotpswrd() throws InterruptedException {
-		WebDriver driver = new ChromeDriver(options);
+	public void forgotpswrd() throws IOException {
+		WebDriver driver = getWebDriver();
 		loginPage loginPage = new loginPage(driver);
 		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
 		loginPage.forgotpwrd("rahulganesh6945@gmail.com", "newP@ssword1", "newP@ssword1");
