@@ -15,7 +15,8 @@ import tools.jackson.databind.ObjectMapper;
 public class dataReader{
 //refer Video 177 for any queries
 	public void getJsonData() throws IOException {
-	String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"src\\test\\java\\data\\browser.json"), StandardCharsets.UTF_8);
+	String jsonContent = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"src\\test\\java\\data\\browser.json"),
+			StandardCharsets.UTF_8);
 	ObjectMapper mapper = new ObjectMapper();
 	List<HashMap<String,String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String,String>>> () {
 	}
