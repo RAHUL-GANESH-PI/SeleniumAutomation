@@ -3,15 +3,16 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class loginPage {
+import base.waitBase;
 
+public class loginPage extends waitBase{
+	
 	WebDriver driver;
 	
 	public loginPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+		super(driver);
 	}
 	
 	@FindBy(css="input[id='userEmail']")
@@ -52,5 +53,15 @@ public class loginPage {
 		frgtPswrdNwPswrd.sendKeys(newPassword);
 		frgtPswrdconfirmPswrd.sendKeys(confirmPswrd);
 		frgtPswrdSavePswrdBtn.click();
+	}
+	
+	public void waitforElements() {
+	wait.until(ExpectedConditions.visibilityOf(usrName));
+	wait.until(ExpectedConditions.visibilityOf(pwrd));
+	wait.until(ExpectedConditions.visibilityOf(loginBtn));
+	}
+	
+	public void waitForTitle() {
+	wait.until(ExpectedConditions.titleContains("Let's Shop"));
 	}
 }

@@ -9,8 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class base {
+	WebDriver driver;
+	WebDriverWait wait;
+	Properties prop = new Properties();
 
 	public ChromeOptions getChromeOptions() {
 		ChromeOptions chromeOptions = new ChromeOptions();
@@ -26,22 +30,48 @@ public class base {
 		return edgeOptions;
 	}
 
-	public WebDriver getWebDriver() throws IOException {
+	public Properties loadGlobalProperties() throws IOException {
 		Properties prop = new Properties();
 		FileInputStream inpstrm = new FileInputStream(
 				System.getProperty("user.dir") + "/src/test/java/properties/globalData.properties");
 		prop.load(inpstrm);
+		return prop;
+	}
+
+	public WebDriver getWebDriver() throws IOException {
+		Properties prop = loadGlobalProperties();
 		String browser = prop.getProperty("Browser");
 		if (browser.equalsIgnoreCase("chrome")) {
-			WebDriver driver = new ChromeDriver(getChromeOptions());
+			driver = new ChromeDriver(getChromeOptions());
 			return driver;
 		} else if (browser.equalsIgnoreCase("edge")) {
-			WebDriver driver = new EdgeDriver(getEdgeOptions());
+			driver = new EdgeDriver(getEdgeOptions());
 			return driver;
 		} else {
 			// Code runs in Chrome Browser by Default
-			WebDriver driver = new ChromeDriver(getChromeOptions());
+			driver = new ChromeDriver(getChromeOptions());
 			return driver;
 		}
+	}
+
+	public void goToWebsite(WebDriver driver) throws IOException {
+		Properties prop = loadGlobalProperties();
+		driver.get(prop.getProperty("Website"));
+	}
+	
+	public String getPassword() throws IOException {
+		String password = System.getenv("TEST_PASSWORD"); //used when running in GIT CI
+		if (password == null) {
+		    password = loadGlobalProperties().getProperty("Password");   // used when running locally in Eclipse
+		}
+		return password;
+	}
+	
+	public String getUserName() throws IOException {
+		String userName = System.getenv("TEST_USERNAME"); //used when running in GIT CI
+		if (userName == null) {
+			userName = loadGlobalProperties().getProperty("UserName");   // used when running locally in Eclipse
+		}
+		return userName;
 	}
 }

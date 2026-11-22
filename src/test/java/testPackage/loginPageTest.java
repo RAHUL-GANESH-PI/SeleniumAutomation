@@ -26,25 +26,23 @@ public class loginPageTest extends base{
 	@Test
 	public void launchBrowser() throws IOException {
 		WebDriver driver = getWebDriver();
-		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
+		goToWebsite(driver);
 		loginPage loginPage = new loginPage(driver);
-		shoppingPage object = loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-		wait.until(ExpectedConditions.titleContains("Let's Shop"));
+		shoppingPage object = loginPage.login(getUserName(), getPassword());
+		loginPage.waitForTitle();
 		assertEquals(true, driver.getTitle().equals("Let's Shop"));
 		driver.quit();
 	}
 
 	@Test
-	public void forgotpswrd() throws IOException {
+	public void forgotpswrd() throws IOException, InterruptedException {
 		WebDriver driver = getWebDriver();
 		loginPage loginPage = new loginPage(driver);
-		driver.get("https://rahulshettyacademy.com/client/#/auth/login");
-		loginPage.forgotpwrd("rahulganesh6945@gmail.com", "newP@ssword1", "newP@ssword1");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[id='userEmail']")));
-		shoppingPage object = loginPage.login("rahulganesh6945@gmail.com", "newP@ssword1");
-		wait.until(ExpectedConditions.titleContains("Let's Shop"));
+		goToWebsite(driver);
+		loginPage.forgotpwrd(getUserName(), getPassword(), getPassword());
+		loginPage.waitforElements();
+		shoppingPage object = loginPage.login(getUserName(), getPassword());
+		loginPage.waitForTitle();
 		assertEquals(true, driver.getTitle().equals("Let's Shop"));
 		driver.quit();
 	}
