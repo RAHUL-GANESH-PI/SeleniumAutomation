@@ -29,7 +29,7 @@ public class base {
 	public WebDriver getWebDriver() throws IOException {
 		Properties prop = new Properties();
 		FileInputStream inpstrm = new FileInputStream(
-				System.getProperty("user.dir") + "\\src\\test\\java\\properties\\globalData.properties");
+				System.getProperty("user.dir") + "/src/test/java/properties/globalData.properties");
 		prop.load(inpstrm);
 		String browser = prop.getProperty("Browser");
 		if (browser.equalsIgnoreCase("chrome")) {
