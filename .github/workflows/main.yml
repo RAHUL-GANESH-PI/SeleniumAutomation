@@ -17,6 +17,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean install -DskipTests
       - name: Run tests
         run: mvn test
+        env:
+          TEST_USERNAME: ${{ secrets.TEST_USERNAME }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
