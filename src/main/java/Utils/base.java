@@ -1,9 +1,13 @@
 package Utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -16,6 +20,11 @@ public class base {
 	WebDriverWait wait;
 	Properties prop = new Properties();
 
+	public void takeScreenshot(WebDriver driver) throws IOException {
+		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(src, new File("C://Users//rahul//Downloads//SeleniumAutomation//ScreenShots/screenshot.png"));
+		
+	}
 	public ChromeOptions getChromeOptions() {
 		ChromeOptions chromeOptions = new ChromeOptions();
 		chromeOptions.addArguments("headless");
