@@ -54,9 +54,12 @@ public class base {
 		}
 	}
 
-	public void goToWebsite(WebDriver driver) throws IOException {
+	public void goToWebsite(WebDriver driver,String URL) throws IOException {
 		Properties prop = loadGlobalProperties();
+		if(URL.equalsIgnoreCase("Website"))
 		driver.get(prop.getProperty("Website"));
+		else if(URL.equalsIgnoreCase("AutomationURL"))
+		driver.get(prop.getProperty("AutomationURL"));
 	}
 	
 	public String getPassword() throws IOException {

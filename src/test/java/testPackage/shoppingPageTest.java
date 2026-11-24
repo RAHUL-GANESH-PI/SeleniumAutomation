@@ -25,7 +25,7 @@ public class shoppingPageTest extends base {
 	@Test
 	public void goCartAndBackVerification() throws IOException {
 		WebDriver driver = getWebDriver();
-		goToWebsite(driver);
+		goToWebsite(driver,"Website");
 		loginPage loginPage = new loginPage(driver);
 		shoppingPage shoppingPage = loginPage.login(getUserName(), getPassword());
 		shoppingPage.clickCartButton(driver);
@@ -37,7 +37,7 @@ public class shoppingPageTest extends base {
 	@Test
 	public void addToCart() throws IOException {
 		WebDriver driver = getWebDriver();
-		goToWebsite(driver);
+		goToWebsite(driver,"Website");
 		loginPage loginPage = new loginPage(driver);
 		shoppingPage shoppingPage = loginPage.login(getUserName(), getPassword());
 		List<WebElement> cartItems = shoppingPage.getAllShoppingListItems(driver);
