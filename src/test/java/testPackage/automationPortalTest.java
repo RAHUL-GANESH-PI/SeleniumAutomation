@@ -14,8 +14,8 @@ public class automationPortalTest extends base{
 	public void radioButtonTest() throws IOException, InterruptedException {
 		WebDriver driver = getWebDriver();
 		goToWebsite(driver, "AutomationURL");
-	//	Thread.sleep(3000);
-	//	driver.findElement(By.cssSelector(".radioButton")).click();
+		driver.findElement(By.cssSelector("input[value='radio1']")).click();
+		takeScreenshot(driver);
 		driver.quit();
 	}
 	
